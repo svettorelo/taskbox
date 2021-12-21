@@ -11,6 +11,9 @@
 
 This template ships with the main React and Storybook configuration files you'll need to get up and running fast.
 
+Deployed Storybook [here](https://61c1325b579bcd003a718547-lhfteabfls.chromatic.com)
+
+
 ## 🚅  Quick start
 
 1.  **Create the application.**
