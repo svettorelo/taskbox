@@ -1,5 +1,19 @@
 import {configureStore,createSlice} from "@reduxjs/toolkit";
 
+/**Error field */
+const AppStateSlice = createSlice({
+  name:"appState",
+  initialState: "",
+  reducers: {
+    updateAppState: (state,action) => {
+      return {
+        ...state,
+        isError:action.payload
+      }
+    }
+  }
+});
+
 /**Initial state of the store when the app loads. */
 const defaultTasks = [
   {id:"1", title:"Something", state:"TASK_INBOX"},
@@ -25,11 +39,13 @@ const TasksSlice = createSlice({
 
 /**The actions contained in the slice are exported for usage in our components */
 export const {updateTaskState} = TasksSlice.actions;
+export const {updateAppState} = AppStateSlice.actions;
 
 //**Store configuration */
 const store = configureStore({
   reducer: {
     tasks: TasksSlice.reducer,
+    isError: AppStateSlice.reducer
   }
 });
 

@@ -1,12 +1,10 @@
 import React from "react";
 import {PureTaskList} from "./TaskList";
 import * as TaskStories from "./Task.stories";
-// import {Provider} from "react-redux";
-// import store from "../lib/store";
 
 export default {
   component: PureTaskList,
-  title: "TaskList",
+  title: "PureTaskList",
   decorators: [story => <div style={{padding:"3rem"}}>{story()}</div>]
 }
 
