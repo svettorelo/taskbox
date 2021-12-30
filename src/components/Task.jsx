@@ -12,6 +12,7 @@ const InputCheckbox = styled.input.attrs({type:"checkbox"})`
   display: inline;
   margin: 0 auto;
   box-shadow: #2cc5d2 0 0 0 1px inset;
+  
 `;
 const Title = styled.span`
   overflow: hidden;
@@ -20,6 +21,12 @@ const Title = styled.span`
   white-space: nowrap;
   background: transparent;
   flex: 1 1;
+  ${props => props.state === "TASK_PINNED" &&
+  `  color: #2cc5d2;
+  `}
+  ${props => props.state === "TASK_ARCHIVED" &&
+  `  color: #aaa;
+  `}
 `;
 
 const TaskDiv = styled.div`
@@ -27,6 +34,13 @@ const TaskDiv = styled.div`
   margin: 3px 0;
   display: flex;
   align-items: center;
+  line-height: 20px;
+  height: 3rem;
+  width: 100%;
+  background: white;
+`;
+const StarDiv = styled.div`
+  padding-right: 20px;
 `;
 
 export const Task = ({task:{id,title,state},onArchiveTask,onPinTask}) => {
@@ -37,17 +51,17 @@ export const Task = ({task:{id,title,state},onArchiveTask,onPinTask}) => {
           <InputCheckbox defaultChecked={state === "TASK_ARCHIVED"}
                          disabled={true} name="checked"/>
         </CBxDiv>
-        <Title>
+        <Title {...{state}}>
           {title}
         </Title>
-        <div className="actions" onClick={ev=>ev.stopPropagation()}>
+        <StarDiv className="actions" onClick={ev=>ev.stopPropagation()}>
         {state!=="TASK_ARCHIVED" && (
           //eslint-disable-next-line jsx-a11y/anchor-is-valid
           <a onClick={()=>onPinTask(id)}>
             <span className="icon-star" id={`pinTask-${id}`} aria-label={`pinTask-${id}`}/>
           </a>
         )}
-      </div>
+      </StarDiv>
     </TaskDiv>
   );
 };
