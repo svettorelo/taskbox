@@ -5,7 +5,7 @@ import {useSelector} from "react-redux";
 import styled from "styled-components";
 
 const ErrorScreen = styled.div`
-  min-height: 100vh;
+   min-height: 92vh;
    background: white;
    display: flex;
    .wrapper-message {
