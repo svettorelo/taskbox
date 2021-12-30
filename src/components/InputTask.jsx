@@ -8,7 +8,7 @@ const Input = styled.input.attrs({type:"text"})`
   padding: 0.4rem;
   width:100%;
   border: 2px solid whitesmoke ;
-  border-radius: 5px;
+  border-radius: 4px;
   margin: 0 3px;
 `;
 const MyDiv = styled.div`

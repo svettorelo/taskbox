@@ -8,7 +8,7 @@ const Button = styled.button`
   width: 7em;
   padding: 0.5em;
   border: 0;
-  border-radius: 0.5em;
+  border-radius: 4px;
   background-color: steelblue;
   color: whitesmoke;
   
